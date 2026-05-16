@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descobrir o Japão</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        japan: { red: '#D62828', dark: '#222222', light: '#F5F5F5' }
+      },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Montserrat', 'Arial', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+  <style>
+html, body { height: 100%; margin: 0; }
+.page { display: none; }
+.page.active { display: block; }
+.nav-link { position: relative; cursor: pointer; transition: color 0.2s; }
+.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #D62828; transition: width 0.3s; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover, .nav-link.active { color: #D62828; }
+.hero-gradient { background: linear-gradient(135deg, #D62828 0%, #a01e1e 100%); }
+.card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+.fade-in { animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.img-placeholder { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.section-divider { width: 60px; height: 4px; background: #D62828; border-radius: 2px; }
+.mobile-menu { display: none; }
+.mobile-menu.open { display: flex; }
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .mobile-toggle { display: flex !important; }
+}
+@media (min-width: 769px) {
+  .mobile-toggle { display: none !important; }
+  .mobile-menu { display: none !important; }
+}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-japan-light font-body text-japan-dark">
+  <div id="app" class="h-full w-full overflow-auto"><!-- NAVBAR -->
+   <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+     <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')"><span class="text-2xl">🇯🇵</span> <span id="nav-title" class="font-heading font-bold text-lg text-japan-dark">Descobrir o Japão</span>
+     </div>
+     <div class="desktop-nav flex gap-6 text-sm font-medium text-japan-dark"><span class="nav-link active" data-page="home" onclick="navigateTo('home')">Início</span> <span class="nav-link" data-page="cities" onclick="navigateTo('cities')">Cidades</span> <span class="nav-link" data-page="food" onclick="navigateTo('food')">Gastronomia</span> <span class="nav-link" data-page="culture" onclick="navigateTo('culture')">Cultura</span> <span class="nav-link" data-page="conclusion" onclick="navigateTo('conclusion')">Conclusão</span>
+     </div><button class="mobile-toggle items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()" aria-label="Menu"> <i data-lucide="menu" style="width:22px;height:22px;"></i> </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu flex-col bg-white border-t border-gray-100 px-4 py-3 gap-3 text-sm font-medium"><span class="nav-link py-2" data-page="home" onclick="navigateTo('home');toggleMobileMenu()">Início</span> <span class="nav-link py-2" data-page="cities" onclick="navigateTo('cities');toggleMobileMenu()">Cidades</span> <span class="nav-link py-2" data-page="food" onclick="navigateTo('food');toggleMobileMenu()">Gastronomia</span> <span class="nav-link py-2" data-page="culture" onclick="navigateTo('culture');toggleMobileMenu()">Cultura</span> <span class="nav-link py-2" data-page="conclusion" onclick="navigateTo('conclusion');toggleMobileMenu()">Conclusão</span>
+    </div>
+   </nav><!-- PAGE 1: HOME -->
+   <div id="page-home" class="page active fade-in"><!-- Hero -->
+    <div class="hero-gradient text-white py-20 px-4 text-center relative overflow-hidden">
+     <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><circle cx=%2240%22 cy=%2240%22 r=%222%22 fill=%22white%22/></svg>'); background-size: 40px 40px;"></div>
+     <div class="relative max-w-3xl mx-auto">
+      <div class="text-6xl mb-4">
+       ⛩️
+      </div>
+      <h1 id="hero-title" class="font-heading font-900 text-4xl md:text-5xl mb-3">Descobrir o Japão</h1>
+      <p class="font-body text-lg md:text-xl opacity-90 mb-8">Uma viagem pela cultura, gastronomia e cidades japonesas.</p><button onclick="navigateTo('cities')" class="bg-white text-japan-red font-heading font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors inline-flex items-center gap-2"> Explorar <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </button>
+     </div>
+    </div><!-- Intro -->
+    <div class="max-w-6xl mx-auto px-4 py-16">
+     <div class="max-w-3xl mx-auto text-center mb-12">
+      <div class="section-divider mx-auto mb-6"></div>
+      <p class="text-lg leading-relaxed text-gray-700">O Japão é um dos países mais fascinantes do mundo. Conhecido pela mistura entre tradição e tecnologia, este país oferece paisagens incríveis, comida deliciosa e uma cultura muito rica.</p>
+     </div><!-- Image cards -->
+     <div class="grid md:grid-cols-3 gap-6">
+      <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
+       <div class="img-placeholder h-52 bg-gradient-to-br from-blue-100 to-pink-100 relative">
+        <div class="text-center p-4">
+         <div class="text-5xl mb-2">
+          🗻
+         </div>
+         <p class="font-heading font-semibold text-japan-dark">Monte Fuji</p>
+         <p class="text-xs text-gray-500 mt-1">Nascer do sol</p>
+        </div>
+       </div>
+      </div>
+      <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
+       <div class="img-placeholder h-52 bg-gradient-to-br from-indigo-200 to-purple-200 relative">
+        <div class="text-center p-4">
+         <div class="text-5xl mb-2">
+          🌃
+         </div>
+         <p class="font-heading font-semibold text-japan-dark">Tóquio à Noite</p>
+         <p class="text-xs text-gray-500 mt-1">Luzes néon</p>
+        </div>
+       </div>
+      </div>
+      <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
+       <div class="img-placeholder h-52 bg-gradient-to-br from-pink-100 to-rose-200 relative">
+        <div class="text-center p-4">
+         <div class="text-5xl mb-2">
+          🌸
+         </div>
+         <p class="font-heading font-semibold text-japan-dark">Cerejeiras Sakura</p>
+         <p class="text-xs text-gray-500 mt-1">Primavera japonesa</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- PAGE 2: CITIES -->
+   <div id="page-cities" class="page fade-in"><!-- Panoramic header -->
+    <div class="bg-gradient-to-r from-japan-dark to-gray-800 text-white py-16 px-4 text-center">
+     <div class="text-5xl mb-3">
+      🏙️
+     </div>
+     <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Cidades do Japão</h1>
+     <p class="opacity-80">As metrópoles mais fascinantes do país do sol nascente</p>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 py-12 space-y-12"><!-- Tokyo -->
+     <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex card-hover">
+      <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-indigo-100 to-blue-200 flex-shrink-0">
+       <div class="text-center p-6">
+        <div class="text-6xl mb-2">
+         🌆
+        </div>
+        <p class="font-heading font-semibold">Ruas de Tóquio</p>
+       </div>
+      </div>
+      <div class="p-8 md:w-3/5"><span class="inline-block bg-japan-red text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Capital</span>
+       <h2 class="font-heading font-bold text-2xl mb-3">Tóquio</h2>
+       <p class="text-gray-600 leading-relaxed">Tóquio é a capital do Japão e uma das cidades mais modernas do mundo. É conhecida pelos seus edifícios altos, tecnologia avançada e vida noturna.</p>
+      </div>
+     </div><!-- Kyoto -->
+     <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex md:flex-row-reverse card-hover">
+      <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-amber-100 to-orange-200 flex-shrink-0">
+       <div class="text-center p-6">
+        <div class="text-6xl mb-2">
+         ⛩️
+        </div>
+        <p class="font-heading font-semibold">Templo em Quioto</p>
+       </div>
+      </div>
+      <div class="p-8 md:w-3/5"><span class="inline-block bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Histórica</span>
+       <h2 class="font-heading font-bold text-2xl mb-3">Quioto</h2>
+       <p class="text-gray-600 leading-relaxed">Quioto é famosa pelos templos tradicionais, jardins e cultura histórica japonesa.</p>
+      </div>
+     </div><!-- Osaka -->
+     <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex card-hover">
+      <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-green-100 to-emerald-200 flex-shrink-0">
+       <div class="text-center p-6">
+        <div class="text-6xl mb-2">
+         🏯
+        </div>
+        <p class="font-heading font-semibold">Castelo de Osaca</p>
+       </div>
+      </div>
+      <div class="p-8 md:w-3/5"><span class="inline-block bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Gastronomia</span>
+       <h2 class="font-heading font-bold text-2xl mb-3">Osaca</h2>
+       <p class="text-gray-600 leading-relaxed">Osaca destaca-se pela gastronomia, pelos mercados e pelo famoso Castelo de Osaca.</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- PAGE 3: FOOD -->
+   <div id="page-food" class="page fade-in">
+    <div class="hero-gradient text-white py-16 px-4 text-center">
+     <div class="text-5xl mb-3">
+      🍱
+     </div>
+     <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Gastronomia Japonesa</h1>
+     <p class="opacity-90">A gastronomia japonesa é uma das mais conhecidas do mundo. Os pratos japoneses destacam-se pela apresentação cuidada e pelos sabores únicos.</p>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
+       <div class="img-placeholder h-44 bg-gradient-to-br from-orange-50 to-rose-100">
+        <div class="text-6xl">
+         🍣
+        </div>
+       </div>
+       <div class="p-5">
+        <h3 class="font-heading font-bold text-xl mb-2">Sushi</h3>
+        <p class="text-gray-500 text-sm">Arroz temperado com peixe cru fresco, uma arte culinária milenar.</p>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
+       <div class="img-placeholder h-44 bg-gradient-to-br from-amber-50 to-yellow-100">
+        <div class="text-6xl">
+         🍜
+        </div>
+       </div>
+       <div class="p-5">
+        <h3 class="font-heading font-bold text-xl mb-2">Ramen</h3>
+        <p class="text-gray-500 text-sm">Sopa de massa com caldo rico, ovos e carne.</p>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
+       <div class="img-placeholder h-44 bg-gradient-to-br from-yellow-50 to-amber-100">
+        <div class="text-6xl">
+         🍤
+        </div>
+       </div>
+       <div class="p-5">
+        <h3 class="font-heading font-bold text-xl mb-2">Tempura</h3>
+        <p class="text-gray-500 text-sm">Legumes e marisco fritos em massa leve e crocante.</p>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
+       <div class="img-placeholder h-44 bg-gradient-to-br from-pink-50 to-purple-100">
+        <div class="text-6xl">
+         🍡
+        </div>
+       </div>
+       <div class="p-5">
+        <h3 class="font-heading font-bold text-xl mb-2">Mochi</h3>
+        <p class="text-gray-500 text-sm">Doce de massa de arroz glutinoso, colorido e delicioso.</p>
+       </div>
+      </div>
+     </div><!-- Video -->
+     <div class="max-w-3xl mx-auto text-center">
+      <div class="section-divider mx-auto mb-6"></div>
+      <h2 class="font-heading font-bold text-2xl mb-6">Vídeo: Comida Japonesa</h2>
+      <div class="rounded-2xl overflow-hidden shadow-lg" style="position:relative;padding-bottom:56.25%;height:0;"><iframe src="https://www.youtube.com/embed/bYUTxl_7DYA" title="Comida Japonesa" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+     </div>
+    </div>
+   </div><!-- PAGE 4: CULTURE -->
+   <div id="page-culture" class="page fade-in">
+    <div class="bg-gradient-to-br from-japan-dark via-gray-900 to-japan-dark text-white py-16 px-4 text-center">
+     <div class="text-5xl mb-3">
+      🎌
+     </div>
+     <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Cultura e Monumentos</h1>
+     <p class="opacity-80">O Japão possui uma cultura rica e antiga. O país mistura tradição com inovação tecnológica.</p>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 py-12"><!-- Monte Fuji feature -->
+     <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-10 card-hover">
+      <div class="img-placeholder h-64 bg-gradient-to-br from-sky-100 via-blue-50 to-pink-100">
+       <div class="text-center">
+        <div class="text-8xl mb-2">
+         🗻
+        </div>
+        <p class="font-heading font-bold text-xl text-japan-dark">Monte Fuji — 3776m</p>
+       </div>
+      </div>
+      <div class="p-8 text-center">
+       <h2 class="font-heading font-bold text-2xl mb-3">Monte Fuji</h2>
+       <p class="text-gray-600 max-w-2xl mx-auto">O Monte Fuji é o pico mais alto do Japão e um símbolo icónico do país. É património mundial da UNESCO e um destino popular para alpinistas e fotógrafos.</p>
+      </div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white rounded-2xl shadow-md p-8 card-hover">
+       <div class="flex items-center gap-4 mb-4">
+        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center text-3xl">
+         ⛩️
+        </div>
+        <h3 class="font-heading font-bold text-xl">Templos Japoneses</h3>
+       </div>
+       <p class="text-gray-600">Os templos budistas e santuários xintoístas são parte essencial da paisagem cultural japonesa, oferecendo espaços de paz e espiritualidade.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-8 card-hover">
+       <div class="flex items-center gap-4 mb-4">
+        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-pink-100 to-rose-200 flex items-center justify-center text-3xl">
+         🌸
+        </div>
+        <h3 class="font-heading font-bold text-xl">Sakura</h3>
+       </div>
+       <p class="text-gray-600">As cerejeiras em flor, ou Sakura, simbolizam a beleza efémera da vida. A primavera japonesa transforma o país num espetáculo rosa.</p>
+      </div>
+     </div>
+     <div class="bg-white rounded-2xl shadow-md p-8 card-hover">
+      <div class="flex items-center gap-4 mb-4">
+       <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center text-3xl">
+        🚄
+       </div>
+       <h3 class="font-heading font-bold text-xl">Tecnologia Japonesa</h3>
+      </div>
+      <p class="text-gray-600">Do comboio-bala Shinkansen à robótica avançada, o Japão é líder mundial em inovação tecnológica, combinando eficiência com elegância.</p>
+     </div>
+    </div>
+   </div><!-- PAGE 5: CONCLUSION -->
+   <div id="page-conclusion" class="page fade-in">
+    <div class="bg-gradient-to-br from-japan-red to-red-700 text-white py-16 px-4 text-center">
+     <div class="flex items-center justify-center gap-3 mb-4"><span class="text-4xl">🇯🇵</span>
+      <h1 class="font-heading font-800 text-3xl md:text-4xl">Conclusão</h1>
+     </div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 py-12">
+     <div class="bg-white rounded-2xl shadow-md p-8 md:p-12 mb-10 text-center">
+      <div class="section-divider mx-auto mb-6"></div>
+      <p class="text-lg text-gray-700 leading-relaxed mb-8">O Japão é um país cheio de cultura, tradição e modernidade. Este trabalho permitiu conhecer melhor as cidades, a gastronomia e os monumentos japoneses.</p>
+      <div class="img-placeholder h-48 rounded-xl bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 mb-8">
+       <div class="text-center">
+        <div class="text-6xl mb-1">
+         🌅
+        </div>
+        <p class="text-gray-500 text-sm">Paisagem japonesa ao pôr do sol</p>
+       </div>
+      </div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center card-hover"><i data-lucide="heart" style="width:28px;height:28px;color:#D62828;" class="mx-auto mb-3"></i>
+       <h3 class="font-heading font-bold text-lg mb-2">Agradecimentos</h3>
+       <p class="text-gray-500 text-sm">Agradeço ao professor(a) pelo apoio e orientação neste trabalho.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center card-hover"><i data-lucide="mail" style="width:28px;height:28px;color:#D62828;" class="mx-auto mb-3"></i>
+       <h3 class="font-heading font-bold text-lg mb-2">Contactos</h3>
+       <p class="text-gray-500 text-sm">aluno@escola.pt<br>
+        Tel: +351 912 345 678</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center card-hover"><i data-lucide="book-open" style="width:28px;height:28px;color:#D62828;" class="mx-auto mb-3"></i>
+       <h3 class="font-heading font-bold text-lg mb-2">Referências</h3>
+       <p class="text-gray-500 text-sm">Wikipedia, Japan Guide, National Geographic</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- FOOTER -->
+   <footer class="bg-japan-dark text-white py-8 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="flex items-center justify-center gap-2 mb-3"><span class="text-xl">🇯🇵</span> <span class="font-heading font-bold" id="footer-title">Descobrir o Japão</span>
+     </div>
+     <p class="text-gray-400 text-sm mb-1"><span id="footer-student">Nome do Aluno</span> — <span id="footer-year">9º Ano</span></p>
+     <p class="text-gray-500 text-xs">© 2025 Todos os direitos reservados</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+// Navigation
+let currentPage = 'home';
+
+function navigateTo(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.remove('fade-in');
+    void target.offsetWidth;
+    target.classList.add('active', 'fade-in');
+  }
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.toggle('active', l.dataset.page === page);
+  });
+  currentPage = page;
+  document.getElementById('app').scrollTop = 0;
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// Element SDK
+const defaultConfig = {
+  main_title: 'Descobrir o Japão',
+  student_name: 'Nome do Aluno',
+  school_year: '9º Ano',
+  background_color: '#F5F5F5',
+  accent_color: '#D62828',
+  text_color: '#222222',
+  card_color: '#FFFFFF',
+  secondary_accent: '#a01e1e',
+  font_family: 'Poppins',
+  font_size: 16
+};
+
+function applyConfig(config) {
+  const c = Object.assign({}, defaultConfig, config);
+  // Texts
+  document.getElementById('hero-title').textContent = c.main_title;
+  document.getElementById('nav-title').textContent = c.main_title;
+  document.getElementById('footer-title').textContent = c.main_title;
+  document.getElementById('footer-student').textContent = c.student_name;
+  document.getElementById('footer-year').textContent = c.school_year;
+  // Colors
+  document.body.style.backgroundColor = c.background_color;
+  document.querySelectorAll('.hero-gradient').forEach(el => {
+    el.style.background = `linear-gradient(135deg, ${c.accent_color} 0%, ${c.secondary_accent} 100%)`;
+  });
+  document.querySelectorAll('.section-divider').forEach(el => el.style.background = c.accent_color);
+  document.querySelectorAll('.card-hover').forEach(el => el.style.backgroundColor = c.card_color);
+  document.querySelectorAll('.nav-link').forEach(el => { el.style.setProperty('--hover-color', c.accent_color); });
+  // Font
+  const font = c.font_family || defaultConfig.font_family;
+  const baseStack = 'Arial, sans-serif';
+  document.querySelectorAll('.font-heading, [class*="font-heading"]').forEach(el => {
+    el.style.fontFamily = `${font}, ${baseStack}`;
+  });
+  const size = c.font_size || defaultConfig.font_size;
+  document.querySelectorAll('p').forEach(el => { el.style.fontSize = size + 'px'; });
+  document.querySelectorAll('h1').forEach(el => { el.style.fontSize = (size * 2.5) + 'px'; });
+  document.querySelectorAll('h2').forEach(el => { el.style.fontSize = (size * 1.5) + 'px'; });
+  document.querySelectorAll('h3').forEach(el => { el.style.fontSize = (size * 1.25) + 'px'; });
+}
+
+window.elementSdk.init({
+  defaultConfig,
+  onConfigChange: async (config) => { applyConfig(config); },
+  mapToCapabilities: (config) => ({
+    recolorables: [
+      { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+      { get: () => config.card_color || defaultConfig.card_color, set: (v) => { config.card_color = v; window.elementSdk.setConfig({ card_color: v }); } },
+      { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+      { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+      { get: () => config.secondary_accent || defaultConfig.secondary_accent, set: (v) => { config.secondary_accent = v; window.elementSdk.setConfig({ secondary_accent: v }); } }
+    ],
+    borderables: [],
+    fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+    fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+  }),
+  mapToEditPanelValues: (config) => new Map([
+    ['main_title', config.main_title || defaultConfig.main_title],
+    ['student_name', config.student_name || defaultConfig.student_name],
+    ['school_year', config.school_year || defaultConfig.school_year]
+  ])
+});
+
+lucide.createIcons();
+</script>
+</body>
+</html>
