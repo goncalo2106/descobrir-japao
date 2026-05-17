@@ -37,6 +37,7 @@ html, body { height: 100%; margin: 0; }
 .fade-in { animation: fadeIn 0.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .img-placeholder { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 .section-divider { width: 60px; height: 4px; background: #D62828; border-radius: 2px; }
 .mobile-menu { display: none; }
 .mobile-menu.open { display: flex; }
@@ -68,11 +69,9 @@ html, body { height: 100%; margin: 0; }
     <div class="hero-gradient text-white py-20 px-4 text-center relative overflow-hidden">
      <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><circle cx=%2240%22 cy=%2240%22 r=%222%22 fill=%22white%22/></svg>'); background-size: 40px 40px;"></div>
      <div class="relative max-w-3xl mx-auto">
-      <div class="text-6xl mb-4">
-       ⛩️
-      </div>
+      <div class="text-6xl mb-4">⛩️</div>
       <h1 id="hero-title" class="font-heading font-900 text-4xl md:text-5xl mb-3">Descobrir o Japão</h1>
-      <p class="font-body text-lg md:text-xl opacity-90 mb-8">Uma viagem pela cultura, gastronomia e cidades japonesas.</p><button onclick="navigateTo('cities')" class="bg-white text-japan-red font-heading font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors inline-flex items-center gap-2"> Explorar <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </button>
+      <p class="font-body text-lg md:text-xl opacity-90 mb-8">Uma viagem pela cultura, gastronomia e cidades japonesas.</p><button onclick="navigateTo('cities')" class="bg-white text-japan-red font-heading font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors inline-flex items-center gap-2">Explorar <i data-lucide="arrow-right" style="width:18px;height:18px;"></i></button>
      </div>
     </div><!-- Intro -->
     <div class="max-w-6xl mx-auto px-4 py-16">
@@ -84,9 +83,7 @@ html, body { height: 100%; margin: 0; }
       <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
        <div class="img-placeholder h-52 bg-gradient-to-br from-blue-100 to-pink-100 relative">
         <div class="text-center p-4">
-         <div class="text-5xl mb-2">
-          🗻
-         </div>
+         <div class="text-5xl mb-2">🗻</div>
          <p class="font-heading font-semibold text-japan-dark">Monte Fuji</p>
          <p class="text-xs text-gray-500 mt-1">Nascer do sol</p>
         </div>
@@ -95,9 +92,7 @@ html, body { height: 100%; margin: 0; }
       <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
        <div class="img-placeholder h-52 bg-gradient-to-br from-indigo-200 to-purple-200 relative">
         <div class="text-center p-4">
-         <div class="text-5xl mb-2">
-          🌃
-         </div>
+         <div class="text-5xl mb-2">🌃</div>
          <p class="font-heading font-semibold text-japan-dark">Tóquio à Noite</p>
          <p class="text-xs text-gray-500 mt-1">Luzes néon</p>
         </div>
@@ -106,9 +101,7 @@ html, body { height: 100%; margin: 0; }
       <div class="card-hover rounded-2xl overflow-hidden shadow-md bg-white">
        <div class="img-placeholder h-52 bg-gradient-to-br from-pink-100 to-rose-200 relative">
         <div class="text-center p-4">
-         <div class="text-5xl mb-2">
-          🌸
-         </div>
+         <div class="text-5xl mb-2">🌸</div>
          <p class="font-heading font-semibold text-japan-dark">Cerejeiras Sakura</p>
          <p class="text-xs text-gray-500 mt-1">Primavera japonesa</p>
         </div>
@@ -119,9 +112,7 @@ html, body { height: 100%; margin: 0; }
    </div><!-- PAGE 2: CITIES -->
    <div id="page-cities" class="page fade-in"><!-- Panoramic header -->
     <div class="bg-gradient-to-r from-japan-dark to-gray-800 text-white py-16 px-4 text-center">
-     <div class="text-5xl mb-3">
-      🏙️
-     </div>
+     <div class="text-5xl mb-3">🏙️</div>
      <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Cidades do Japão</h1>
      <p class="opacity-80">As metrópoles mais fascinantes do país do sol nascente</p>
     </div>
@@ -129,9 +120,7 @@ html, body { height: 100%; margin: 0; }
      <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex card-hover">
       <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-indigo-100 to-blue-200 flex-shrink-0">
        <div class="text-center p-6">
-        <div class="text-6xl mb-2">
-         🌆
-        </div>
+        <div class="text-6xl mb-2">🌆</div>
         <p class="font-heading font-semibold">Ruas de Tóquio</p>
        </div>
       </div>
@@ -143,9 +132,7 @@ html, body { height: 100%; margin: 0; }
      <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex md:flex-row-reverse card-hover">
       <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-amber-100 to-orange-200 flex-shrink-0">
        <div class="text-center p-6">
-        <div class="text-6xl mb-2">
-         ⛩️
-        </div>
+        <div class="text-6xl mb-2">⛩️</div>
         <p class="font-heading font-semibold">Templo em Quioto</p>
        </div>
       </div>
@@ -157,9 +144,7 @@ html, body { height: 100%; margin: 0; }
      <div class="bg-white rounded-2xl shadow-md overflow-hidden md:flex card-hover">
       <div class="md:w-2/5 img-placeholder h-56 md:h-auto bg-gradient-to-br from-green-100 to-emerald-200 flex-shrink-0">
        <div class="text-center p-6">
-        <div class="text-6xl mb-2">
-         🏯
-        </div>
+        <div class="text-6xl mb-2">🏯</div>
         <p class="font-heading font-semibold">Castelo de Osaka</p>
        </div>
       </div>
@@ -172,53 +157,35 @@ html, body { height: 100%; margin: 0; }
    </div><!-- PAGE 3: FOOD -->
    <div id="page-food" class="page fade-in">
     <div class="hero-gradient text-white py-16 px-4 text-center">
-     <div class="text-5xl mb-3">
-      🍱
-     </div>
+     <div class="text-5xl mb-3">🍱</div>
      <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Gastronomia Japonesa</h1>
      <p class="opacity-90">A gastronomia japonesa de Osaka é famosa por sua autenticidade e variedade, sendo considerada uma das mais ricas do Japão. Nas ruas movimentadas da cidade, é possível encontrar sabores únicos e pratos tradicionais que encantam visitantes e moradores. Entre as especialidades mais conhecidas do Japão, que também podem ser encontradas em Osaka, estão o sushi, o ramen, o tempura, e o mochi. Essas delícias representam a tradição culinária japonesa e fazem de Osaka um destino imperdível para quem aprecia boa comida Japonesa. Muita gente que visita o Japão diz que Osaka é a melhor cidade para comer, especialmente ramen, sushi entre outras comidas japonesas.</p>
     </div>
     <div class="max-w-6xl mx-auto px-4 py-12">
      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
       <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
-       <div class="img-placeholder h-44 bg-gradient-to-br from-orange-50 to-rose-100">
-        <div class="text-6xl">
-         🍣
-        </div>
-       </div>
+       <div class="img-placeholder h-44 bg-gradient-to-br from-orange-50 to-rose-100"><div class="text-6xl">🍣</div></div>
        <div class="p-5">
         <h3 class="font-heading font-bold text-xl mb-2">Sushi</h3>
         <p class="text-gray-500 text-sm">Arroz temperado com peixe cru fresco, uma arte culinária milenar.</p>
        </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
-       <div class="img-placeholder h-44 bg-gradient-to-br from-amber-50 to-yellow-100">
-        <div class="text-6xl">
-         🍜
-        </div>
-       </div>
+       <div class="img-placeholder h-44 bg-gradient-to-br from-amber-50 to-yellow-100"><div class="text-6xl">🍜</div></div>
        <div class="p-5">
         <h3 class="font-heading font-bold text-xl mb-2">Ramen</h3>
         <p class="text-gray-500 text-sm">Sopa de massa com caldo rico, ovos e carne.</p>
        </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
-       <div class="img-placeholder h-44 bg-gradient-to-br from-yellow-50 to-amber-100">
-        <div class="text-6xl">
-         🍤
-        </div>
-       </div>
+       <div class="img-placeholder h-44 bg-gradient-to-br from-yellow-50 to-amber-100"><div class="text-6xl">🍤</div></div>
        <div class="p-5">
         <h3 class="font-heading font-bold text-xl mb-2">Tempura</h3>
         <p class="text-gray-500 text-sm">Legumes e marisco fritos em massa leve e crocante.</p>
        </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover text-center">
-       <div class="img-placeholder h-44 bg-gradient-to-br from-pink-50 to-purple-100">
-        <div class="text-6xl">
-         🍡
-        </div>
-       </div>
+       <div class="img-placeholder h-44 bg-gradient-to-br from-pink-50 to-purple-100"><div class="text-6xl">🍡</div></div>
        <div class="p-5">
         <h3 class="font-heading font-bold text-xl mb-2">Mochi</h3>
         <p class="text-gray-500 text-sm">Doce de massa de arroz glutinoso, colorido e delicioso.</p>
@@ -228,77 +195,63 @@ html, body { height: 100%; margin: 0; }
      <div class="max-w-3xl mx-auto text-center">
       <div class="section-divider mx-auto mb-6"></div>
       <h2 class="font-heading font-bold text-2xl mb-6">Vídeo: Comida Japonesa</h2>
-      <div class="rounded-2xl overflow-hidden shadow-lg" style="position:relative;padding-bottom:56.25%;height:0;"><iframe src="https://www.youtube.com/embed/1OzSXqut4n4" title="Comida Japonesa" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <div class="rounded-2xl overflow-hidden shadow-lg" style="position:relative;padding-bottom:56.25%;height:0;"><iframe src="https://www.youtube.com/embed/1OzSXqut4n4" title="Comida Japonesa" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
      </div>
     </div>
    </div><!-- PAGE 4: CULTURE -->
    <div id="page-culture" class="page fade-in">
     <div class="bg-gradient-to-br from-japan-dark via-gray-900 to-japan-dark text-white py-16 px-4 text-center">
-     <div class="text-5xl mb-3">
-      🎌
-     </div>
+     <div class="text-5xl mb-3">🎌</div>
      <h1 class="font-heading font-800 text-3xl md:text-4xl mb-2">Cultura e Monumentos</h1>
      <p class="opacity-80">O Japão possui uma cultura rica e antiga. O país mistura tradição com inovação tecnológica.</p>
     </div>
-    <div class="max-w-6xl mx-auto px-4 py-12"><!-- Monte Fuji with Sakura -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+     <!-- Monte Fuji -->
      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-10 card-hover">
-      <div class="img-placeholder h-64 bg-gradient-to-br from-blue-100 to-pink-100">
-       <div class="text-center p-6">
-        <p class="font-heading font-bold text-sm text-japan-dark mb-2">Monte Fuji com Sakura</p>
-        <p class="text-xs text-gray-500">Flores de cerejeira ao amanhecer</p>
-       </div>
+      <div class="img-placeholder h-64 bg-gradient-to-br from-sky-100 via-blue-50 to-pink-100">
+       <img src="https://images.weserv.nl/?url=ibb.co/TqKjVpm3" alt="Monte Fuji" style="width:100%;height:100%;object-fit:cover;">
       </div>
-      <div class="p-6 text-center">
-       <h2 class="font-heading font-bold text-xl mb-2">Monte Fuji com Sakura</h2>
-       <p class="text-gray-600 text-sm">A combinação do Monte Fuji com as flores de cerejeira em flor cria uma das paisagens mais icónicas do Japão.</p>
+      <div class="p-8 text-center">
+       <h2 class="font-heading font-bold text-2xl mb-3">Monte Fuji</h2>
+       <p class="text-gray-600 max-w-2xl mx-auto">O Monte Fuji é a montanha mais alta do Japão, com 3.776 metros. Fica perto de Tóquio e é um símbolo do país. É um vulcão ativo, mas está adormecido. É sagrado e aparece em muitas obras de arte japonesa. A montanha tem forma cônica, fica coberta de neve no inverno e é admirada por turistas e japoneses, especialmente ao amanhecer.</p>
       </div>
      </div>
-     <!-- Templo Japonês -->
+     <!-- Templos Japoneses -->
      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-10 card-hover">
-      <div class="img-placeholder h-64 bg-gradient-to-br from-orange-200 to-red-200">
-       <div class="text-center p-6">
-        <p class="font-heading font-bold text-sm text-japan-dark mb-2">Templo Japonês</p>
-        <p class="text-xs text-gray-500">Ao pôr do sol</p>
-       </div>
+      <div class="img-placeholder h-64 bg-gradient-to-br from-orange-100 to-red-200">
+       <img src="https://images.weserv.nl/?url=ibb.co/TdfRvrf" alt="Templos Japoneses" style="width:100%;height:100%;object-fit:cover;">
       </div>
-      <div class="p-6 text-center">
-       <h2 class="font-heading font-bold text-xl mb-2">Templos Japoneses</h2>
-       <p class="text-gray-600 text-sm">Os templos budistas e santuários xintoístas são parte essencial da paisagem cultural japonesa, oferecendo espaços de paz e espiritualidade.</p>
+      <div class="p-8 text-center">
+       <h2 class="font-heading font-bold text-2xl mb-3">Templos Japoneses</h2>
+       <p class="text-gray-600">Os templos no Japão são lugares muito importantes para a cultura e a religião do país. Existem templos budistas e santuários xintoístas, sendo estes últimos ligados à tradição do Shinto. Muitos santuários são facilmente reconhecidos pelos portões vermelhos chamados torii, que marcam a entrada para um espaço sagrado. Estes locais são usados para orações, pedidos de sorte e proteção, mas também são espaços de paz e reflexão. Além do lado religioso, os templos fazem parte da identidade cultural japonesa e são muito visitados por turistas devido à sua beleza e ambiente tranquilo.</p>
       </div>
      </div>
-     <!-- Sakura no Canal -->
+     <!-- Sakura -->
      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-10 card-hover">
       <div class="img-placeholder h-64 bg-gradient-to-br from-pink-100 to-purple-100">
-       <div class="text-center p-6">
-        <p class="font-heading font-bold text-sm text-japan-dark mb-2">Árvores Sakura</p>
-        <p class="text-xs text-gray-500">Reflexo no canal</p>
-       </div>
+       <img src="https://images.weserv.nl/?url=ibb.co/FbTLZXVk" alt="Sakura" style="width:100%;height:100%;object-fit:cover;">
       </div>
-      <div class="p-6 text-center">
-       <h2 class="font-heading font-bold text-xl mb-2">Sakura</h2>
-       <p class="text-gray-600 text-sm">As cerejeiras em flor, ou Sakura, simbolizam a beleza efémera da vida. A primavera japonesa transforma o país num espetáculo rosa.</p>
+      <div class="p-8 text-center">
+       <h2 class="font-heading font-bold text-2xl mb-3">Sakura</h2>
+       <p class="text-gray-600">As sakuras são as flores de cerejeira do Japão e simbolizam a beleza, a renovação e a natureza passageira da vida. Todos os anos, na primavera, as árvores ficam cobertas por flores cor-de-rosa e brancas, criando paisagens incríveis.</p>
       </div>
-     </div>
-     <!-- Tecnologia Japonesa -->
-     <div class="bg-white rounded-2xl shadow-md p-8 card-hover mb-10">
-      <div class="flex items-center gap-4 mb-4">
-       <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center text-3xl">
-        🚄
-       </div>
-       <h3 class="font-heading font-bold text-xl">Tecnologia Japonesa</h3>
-      </div>
-      <p class="text-gray-600">Do comboio-bala Shinkansen à robótica avançada, o Japão é líder mundial em inovação tecnológica, combinando eficiência com elegância.</p>
      </div>
      <!-- Cultura Automóva Japonesa -->
-     <div class="bg-white rounded-2xl shadow-md p-8 card-hover">
-      <div class="flex items-center gap-4 mb-4">
-       <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-100 to-yellow-100 flex items-center justify-center text-3xl">
-        🏎️
+     <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+      <div class="p-8 pb-4">
+       <h2 class="font-heading font-bold text-2xl mb-6">Cultura Automóva Japonesa</h2>
+       <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="img-placeholder h-56 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-200">
+         <img src="https://images.weserv.nl/?url=ibb.co/Y4fTrzFc" alt="Cultura Automotiva 1" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="img-placeholder h-56 rounded-lg bg-gradient-to-br from-purple-100 to-pink-200">
+         <img src="https://images.weserv.nl/?url=ibb.co/QFx19wsb" alt="Cultura Automotiva 2" style="width:100%;height:100%;object-fit:cover;">
+        </div>
        </div>
-       <h3 class="font-heading font-bold text-xl">Cultura Automóva Japonesa</h3>
       </div>
-      <p class="text-gray-600 leading-relaxed">A cultura automóvel japonesa é conhecida pela sua enorme paixão pela velocidade, pela personalização e pela ligação entre o condutor e o carro. No Japão, os automóveis não são apenas um meio de transporte — representam também estilo, identidade e dedicação à engenharia. Modelos como o Toyota Supra, o Nissan Skyline GT-R e o Mazda RX-7 tornaram-se ícones mundiais graças ao seu desempenho e potencial de modificação. O drift é uma das partes mais famosas desta cultura, especialmente nas estradas de montanha japonesas, onde muitos pilotos aperfeiçoavam a técnica de deslizar nas curvas. Esta tradição ganhou ainda mais popularidade através do anime Initial D e de vários videojogos de corridas. Atualmente, a cultura JDM continua a influenciar fãs de automóveis em todo o mundo, combinando inovação tecnológica, estética única e uma forte paixão pela condução.</p>
+      <div class="px-8 pb-8">
+       <p class="text-gray-600">A cultura automóvel japonesa é conhecida pela sua enorme paixão pela velocidade, pela personalização e pela ligação entre o condutor e o carro. No Japão, os automóveis não são apenas um meio de transporte — representam também estilo, identidade e dedicação à engenharia. Modelos como o Toyota Supra, o Nissan Skyline GT-R e o Mazda RX-7 tornaram-se ícones mundiais graças ao seu desempenho e potencial de modificação. O drift é uma das partes mais famosas desta cultura, especialmente nas estradas de montanha japonesas, onde muitos pilotos aperfeiçoavam a técnica de deslizar nas curvas. Esta tradição ganhou ainda mais popularidade através do anime Initial D e de vários videojogos de corridas. Atualmente, a cultura JDM continua a influenciar fãs de automóveis em todo o mundo, combinando inovação tecnológica, estética única e uma forte paixão pela condução.</p>
+      </div>
      </div>
     </div>
    </div><!-- PAGE 5: CONCLUSION -->
@@ -312,30 +265,22 @@ html, body { height: 100%; margin: 0; }
      <div class="bg-white rounded-2xl shadow-md p-8 md:p-12 mb-10 text-center">
       <div class="section-divider mx-auto mb-6"></div>
       <p class="text-lg text-gray-700 leading-relaxed mb-8">O Japão é um país cheio de cultura, tradição e modernidade. Este trabalho permitiu conhecer melhor as cidades, a gastronomia e os monumentos japoneses.</p>
-      <div class="img-placeholder h-64 rounded-xl bg-gradient-to-br from-orange-300 via-red-300 to-pink-300 mb-8">
-       <div class="text-center">
-        <div class="text-6xl mb-1">
-         🌅
-        </div>
-        <p class="text-gray-600 text-sm font-semibold">Paisagem japonesa ao pôr do sol</p>
-       </div>
+      <div class="img-placeholder h-64 rounded-xl bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 mb-8">
+       <img src="https://images.weserv.nl/?url=ibb.co/rGjzVTdJ" alt="Paisagem japonesa ao pôr do sol" style="width:100%;height:100%;object-fit:cover;">
       </div>
      </div>
     </div>
    </div><!-- FOOTER -->
    <footer class="bg-japan-dark text-white py-8 px-4">
     <div class="max-w-6xl mx-auto text-center">
-     <div class="flex items-center justify-center gap-2 mb-3"><span class="text-xl">🇯🇵</span> <span class="font-heading font-bold" id="footer-title">Descobrir o Japão</span>
-     </div>
-     <p class="text-gray-400 text-sm mb-1">Beatriz Silva Nº4 / Gonçalo Capela Nº7 — <span id="footer-year">8ºF</span></p>
+     <div class="flex items-center justify-center gap-2 mb-3"><span class="text-xl">🇯🇵</span> <span class="font-heading font-bold" id="footer-title">Descobrir o Japão</span></div>
+     <p class="text-gray-400 text-sm mb-1"><span id="footer-student">Beatriz Silva Nº4 / Gonçalo Capela Nº7</span> — <span id="footer-year">8ºF</span></p>
      <p class="text-gray-500 text-xs">© 2025 Todos os direitos reservados</p>
     </div>
    </footer>
   </div>
   <script>
-// Navigation
 let currentPage = 'home';
-
 function navigateTo(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
@@ -350,15 +295,12 @@ function navigateTo(page) {
   currentPage = page;
   document.getElementById('app').scrollTop = 0;
 }
-
 function toggleMobileMenu() {
   document.getElementById('mobile-menu').classList.toggle('open');
 }
-
-// Element SDK
 const defaultConfig = {
   main_title: 'Descobrir o Japão',
-  student_name: 'Beatriz Silva & Gonçalo Capela',
+  student_name: 'Beatriz Silva Nº4 / Gonçalo Capela Nº7',
   school_year: '8ºF',
   background_color: '#F5F5F5',
   accent_color: '#D62828',
@@ -368,15 +310,13 @@ const defaultConfig = {
   font_family: 'Poppins',
   font_size: 16
 };
-
 function applyConfig(config) {
   const c = Object.assign({}, defaultConfig, config);
-  // Texts
   document.getElementById('hero-title').textContent = c.main_title;
   document.getElementById('nav-title').textContent = c.main_title;
   document.getElementById('footer-title').textContent = c.main_title;
+  document.getElementById('footer-student').textContent = c.student_name;
   document.getElementById('footer-year').textContent = c.school_year;
-  // Colors
   document.body.style.backgroundColor = c.background_color;
   document.querySelectorAll('.hero-gradient').forEach(el => {
     el.style.background = `linear-gradient(135deg, ${c.accent_color} 0%, ${c.secondary_accent} 100%)`;
@@ -384,7 +324,6 @@ function applyConfig(config) {
   document.querySelectorAll('.section-divider').forEach(el => el.style.background = c.accent_color);
   document.querySelectorAll('.card-hover').forEach(el => el.style.backgroundColor = c.card_color);
   document.querySelectorAll('.nav-link').forEach(el => { el.style.setProperty('--hover-color', c.accent_color); });
-  // Font
   const font = c.font_family || defaultConfig.font_family;
   const baseStack = 'Arial, sans-serif';
   document.querySelectorAll('.font-heading, [class*="font-heading"]').forEach(el => {
@@ -396,7 +335,6 @@ function applyConfig(config) {
   document.querySelectorAll('h2').forEach(el => { el.style.fontSize = (size * 1.5) + 'px'; });
   document.querySelectorAll('h3').forEach(el => { el.style.fontSize = (size * 1.25) + 'px'; });
 }
-
 window.elementSdk.init({
   defaultConfig,
   onConfigChange: async (config) => { applyConfig(config); },
@@ -418,7 +356,6 @@ window.elementSdk.init({
     ['school_year', config.school_year || defaultConfig.school_year]
   ])
 });
-
 lucide.createIcons();
 </script>
 </body>
