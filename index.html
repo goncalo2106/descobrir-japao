@@ -43,6 +43,11 @@ html, body { height: 100%; margin: 0; }
 .mobile-menu.open { display: flex; }
 .link-button { display: inline-block; background: #D62828; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 6px; transition: background 0.3s; }
 .link-button:hover { background: #a01e1e; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 3px; background: #222222; border-radius: 2px; transition: 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .mobile-toggle { display: flex !important; }
@@ -62,7 +67,7 @@ html, body { height: 100%; margin: 0; }
      <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')"><span class="text-2xl">🇯🇵</span> <span id="nav-title" class="font-heading font-bold text-lg text-japan-dark">Descobrir o Japão</span>
      </div>
      <div class="desktop-nav flex gap-6 text-sm font-medium text-japan-dark"><span class="nav-link active" data-page="home" onclick="navigateTo('home')">Início</span> <span class="nav-link" data-page="cities" onclick="navigateTo('cities')">Cidades</span> <span class="nav-link" data-page="food" onclick="navigateTo('food')">Gastronomia</span> <span class="nav-link" data-page="culture" onclick="navigateTo('culture')">Cultura</span> <span class="nav-link" data-page="conclusion" onclick="navigateTo('conclusion')">Conclusão</span>
-     </div><button class="mobile-toggle items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()" aria-label="Menu"> <i data-lucide="menu" style="width:22px;height:22px;"></i> </button>
+     </div><button class="mobile-toggle flex items-center justify-center w-12 h-12 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()" aria-label="Menu"> <div class="hamburger" id="hamburger-menu"> <span></span> <span></span> <span></span> </div> </button>
     </div>
     <div id="mobile-menu" class="mobile-menu flex-col bg-white border-t border-gray-100 px-4 py-3 gap-3 text-sm font-medium"><span class="nav-link py-2" data-page="home" onclick="navigateTo('home');toggleMobileMenu()">Início</span> <span class="nav-link py-2" data-page="cities" onclick="navigateTo('cities');toggleMobileMenu()">Cidades</span> <span class="nav-link py-2" data-page="food" onclick="navigateTo('food');toggleMobileMenu()">Gastronomia</span> <span class="nav-link py-2" data-page="culture" onclick="navigateTo('culture');toggleMobileMenu()">Cultura</span> <span class="nav-link py-2" data-page="conclusion" onclick="navigateTo('conclusion');toggleMobileMenu()">Conclusão</span>
     </div>
@@ -313,6 +318,7 @@ function navigateTo(page) {
 }
 function toggleMobileMenu() {
   document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger-menu').classList.toggle('open');
 }
 const defaultConfig = {
   main_title: 'Descobrir o Japão',
